@@ -1,0 +1,79 @@
+:root {
+  --bg-sidebar: #000000;
+  --bg-chat: #111111;
+  --accent: #3b82f6;
+  --text-main: #ffffff;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+.light-theme {
+  --bg-sidebar: #f3f4f6;
+  --bg-chat: #ffffff;
+  --accent: #2563eb;
+  --text-main: #111827;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+.app-container { display: flex; height: 100vh; background: var(--bg-chat); color: var(--text-main); }
+
+/* Sidebar Layout */
+.sidebar {
+  width: 260px;
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.new-chat-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.history-list { flex: 1; overflow-y: auto; }
+.section-label { font-size: 11px; text-transform: uppercase; color: #666; margin: 10px 5px; }
+.history-item { padding: 10px; border-radius: 6px; cursor: pointer; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.history-item:hover, .history-item.active { background: var(--glass); color: var(--text-main); }
+
+.settings-trigger { 
+  padding: 12px; background: transparent; border: 1px solid #333; 
+  color: #888; border-radius: 8px; cursor: pointer; text-align: left; 
+}
+
+/* Scrollable Dropdowns */
+.selection-header { padding: 20px; display: flex; justify-content: center; gap: 15px; }
+.custom-select select {
+  background: var(--bg-sidebar);
+  color: var(--text-main);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #333;
+}
+
+/* Chat Area */
+.chat-viewport { flex: 1; display: flex; flex-direction: column; }
+.chat-area { flex: 1; overflow-y: auto; padding: 20px 10%; }
+.msg-row { margin-bottom: 25px; display: flex; }
+.msg-row.user { justify-content: flex-end; }
+.msg-bubble { max-width: 70%; padding: 15px; border-radius: 12px; background: var(--glass); line-height: 1.6; }
+.user .msg-bubble { background: var(--accent); color: white; }
+
+/* Fixed Bottom Input */
+.input-container { padding: 20px 10%; }
+.input-box { background: var(--glass); border-radius: 15px; padding: 5px 20px; display: flex; align-items: center; border: 1px solid #333; }
+.input-box input { flex: 1; background: transparent; border: none; color: white; padding: 15px; outline: none; }
+.input-box button { background: var(--accent); border: none; width: 35px; height: 35px; border-radius: 50%; color: white; cursor: pointer; }
+
+/* Modal Settings */
+.modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-card { background: var(--bg-chat); padding: 30px; border-radius: 15px; min-width: 300px; text-align: center; border: 1px solid var(--accent); }
+.theme-options button { margin: 10px; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
