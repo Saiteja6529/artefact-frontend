@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the initial scope prompt and disabled send button', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(screen.getByText(/select a civilization and book to begin\./i)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /send/i })).toBeDisabled();
 });
